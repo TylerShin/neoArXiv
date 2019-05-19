@@ -1,7 +1,8 @@
 import axios from 'axios';
 import { parseString } from 'xml2js';
+import { ArxivPaperResponse } from './types';
 
-export async function getArxivDataFromId(arxivIds: string[]) {
+export async function getArxivDataFromId(arxivIds: string[]): Promise<ArxivPaperResponse> {
   const res = await axios.get(
     `http://export.arxiv.org/api/query?start=0&max_results=${arxivIds.length}&id_list=${arxivIds.join(',')}`
   );
@@ -12,5 +13,5 @@ export async function getArxivDataFromId(arxivIds: string[]) {
       resolve(json);
     });
   });
-  return json;
+  return json as ArxivPaperResponse;
 }

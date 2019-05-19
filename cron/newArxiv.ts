@@ -1,7 +1,9 @@
 import AWS from 'aws-sdk';
-import axios from "axios";
+import axios from 'axios';
 import https from 'https';
+import cheerio from 'cheerio';
 import { getArxivDataFromId } from './api/arxiv';
+import { ArxivPaperResponse } from './api/types';
 
 AWS.config.update({
   region: 'us-east-1',
@@ -22,11 +24,16 @@ async function getFOSListLinksFromHome() {
   return links;
 }
 
-export async function getNewFeed() {
+export async function getNewFeed(): Promise<ArxivPaperResponse | undefined> {
   const links = await getFOSListLinksFromHome();
 
-  // TODO: Remove slice
-  for (const link of links.slice(0, 2)) {
+  /*
+    PLEASE don't change below code to a parallel request.
+    It is following the https://arxiv.org/help/robots policy.
+    Let's save the research world together.
+  */
+ // TODO: Remove slice
+ for (const link of links.slice(0, 2)) {
     const listRes = await axios.get(`https://arxiv.org${link}`);
     const listHTML = listRes.data;
 
@@ -39,21 +46,26 @@ export async function getNewFeed() {
       )
       .get();
 
-    // TODO: Remove slice
-    const jsonRes = await getArxivDataFromId(ids.slice(0, 1));
+    const jsonRes = await getArxivDataFromId(ids);
     console.log(JSON.stringify(jsonRes, null, 2));
     return jsonRes;
   }
 }
 
-
 export const handler = async (event: any, _context: any) => {
   console.log(JSON.stringify(event, null, 2));
+  const response = await getNewFeed();
 
-  await getNewFeed();
+  if (response && response.feed.entry && response.feed.entry.length > 0) {
+    const paperList = response.feed.entry;
+
+    console.log(paperList);
+    // TODO: save or update all paper to DynamoDB
+    
+  }
   
   return {
     statusCode: 200,
-    body: JSON.stringify({ message: 'hello world' }),
+    body: JSON.stringify({ success: true }),
   };
 };
