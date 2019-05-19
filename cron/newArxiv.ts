@@ -3,7 +3,8 @@ import axios from 'axios';
 import https from 'https';
 import cheerio from 'cheerio';
 import { getArxivDataFromId } from './api/arxiv';
-import { ArxivPaperResponse } from './api/types';
+import { ArxivPaperResponse } from '../app/model/arxivPaper/types';
+import ArxivPaper from '../app/model/arxivPaper';
 
 AWS.config.update({
   region: 'us-east-1',
@@ -57,9 +58,10 @@ export const handler = async (event: any, _context: any) => {
   const response = await getNewFeed();
 
   if (response && response.feed.entry && response.feed.entry.length > 0) {
-    const paperList = response.feed.entry;
+    const rawPaperList = response.feed.entry;
 
-    console.log(paperList);
+    const papers = rawPaperList.map(paper => ArxivPaper.formatPaper(paper));
+    console.log(JSON.stringify(papers, null, 2));
     // TODO: save or update all paper to DynamoDB
     
   }

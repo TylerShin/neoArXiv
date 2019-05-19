@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { parseString } from 'xml2js';
-import { ArxivPaperResponse } from './types';
+import { ArxivPaperResponse } from '../../app/model/arxivPaper/types';
 
 export async function getArxivDataFromId(arxivIds: string[]): Promise<ArxivPaperResponse> {
   const res = await axios.get(

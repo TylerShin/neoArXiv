@@ -1,0 +1,79 @@
+{
+  "id": ["http://arxiv.org/abs/1905.06337v1"],
+  "updated": ["2019-05-15T19:50:30Z"],
+  "published": ["2019-05-15T19:50:30Z"],
+  "title": [
+    "How Do Galaxies trace a large scale structure?: A case study around a massive protocluster at $z=3.13$"
+  ],
+  "summary": [
+    "In the hierarchical theory of galaxy formation, a galaxy overdensity is a\nhallmark of a massive cosmic structure. However, it is less well understood how\ndifferent types of galaxies trace the underlying large-scale structure.\nMotivated by the discovery of a z=3.13 protocluster, we examine how the same\nstructure is populated by Ly$\\alpha$-emitting galaxies (LAEs). To this end, we\nhave undertaken a deep narrow-band imaging survey sampling Ly$\\alpha$ emission\nat this redshift. Of the 93 LAE candidates within a 36'x36'~(70x70~Mpc^2)\nfield, 21 galaxies form a significant surface overdensity (delta_g=3.3+/-0.9),\nwhich is spatially segregated from the Lyman break galaxy (LBG) overdensity.\nOne possible interpretation is that they trace two separate structures of\ncomparable masses (~ 10^{15}M_sun) where the latter is hosted by a halo\nassembled at an earlier time. We speculate that the dearth of LAEs in the LBG\noverdensity region may signal the role of halo assembly bias in galaxy\nformation, which would suggest that different search techniques may be biased\naccordingly to the formation age or dynamical state of the host halo. The\nmedian Ly$\\alpha$- and UV luminosity is 30--70\\% higher for the protocluster\nLAEs relative to the field. This difference cannot be explained by the galaxy\noverdensity alone, and may require a top-heavy mass function, higher star\nformation efficiency for protocluster halos, or suppression of galaxy formation\nin low-mass halos. A luminous Ly$\\alpha$ blob and an ultramassive galaxy found\nin this region paint a picture consistent with the expected early growth of\ngalaxies in clusters."
+  ],
+  "author": [
+    {
+      "name": ["Ke Shi"]
+    },
+    {
+      "name": ["Yun Huang"]
+    },
+    {
+      "name": ["Kyoung-Soo Lee"]
+    },
+    {
+      "name": ["Jun Toshikawa"]
+    },
+    {
+      "name": ["Kathryn N. Bowen"]
+    },
+    {
+      "name": ["Nicola Malavasi"]
+    },
+    {
+      "name": ["B. C. Lemaux"]
+    },
+    {
+      "name": ["Olga Cucciati"]
+    },
+    {
+      "name": ["Olivier Le Fevre"]
+    },
+    {
+      "name": ["Arjun Dey"]
+    }
+  ],
+  "arxiv:comment": [
+    {
+      "_": "Accepted to ApJ",
+      "xmlns:arxiv": ["http://arxiv.org/schemas/atom"]
+    }
+  ],
+  "link": [
+    {
+      "href": ["http://arxiv.org/abs/1905.06337v1"],
+      "rel": ["alternate"],
+      "type": ["text/html"]
+    },
+    {
+      "title": ["pdf"],
+      "href": ["http://arxiv.org/pdf/1905.06337v1"],
+      "rel": ["related"],
+      "type": ["application/pdf"]
+    }
+  ],
+  "arxiv:primary_category": [
+    {
+      "xmlns:arxiv": ["http://arxiv.org/schemas/atom"],
+      "term": ["astro-ph.GA"],
+      "scheme": ["http://arxiv.org/schemas/atom"]
+    }
+  ],
+  "category": [
+    {
+      "term": ["astro-ph.GA"],
+      "scheme": ["http://arxiv.org/schemas/atom"]
+    },
+    {
+      "term": ["astro-ph.CO"],
+      "scheme": ["http://arxiv.org/schemas/atom"]
+    }
+  ]
+}
