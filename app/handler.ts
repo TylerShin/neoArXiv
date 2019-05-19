@@ -1,6 +1,7 @@
 import AWS from 'aws-sdk';
 import https from 'https';
-import { Router, Route, Namespace } from 'vingle-corgi';
+import { Router, Namespace } from 'vingle-corgi';
+import userRoutes from './routes/user';
 
 AWS.config.update({
   region: 'us-east-1',
@@ -14,20 +15,12 @@ AWS.config.update({
 const router = new Router([
   new Namespace('/api', {
     children: [
-      Route.GET(
-        '/followers',
-        {
-          operationId: 'dev/followers',
-        },
-        {},
-        async function() {
-          return this.json({
-            data: { hello: 'world ' },
-          });
-        }
-      ),
+      userRoutes
     ],
   }),
 ]);
 
-export const handler = router.handler();
+export const handler = async (event: any, context: any) => {
+  console.log(JSON.stringify(event, null, 2));
+  return await router.handler()(event, context);
+};

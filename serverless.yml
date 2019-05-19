@@ -4,11 +4,18 @@ provider:
   runtime: nodejs8.10
   region: us-east-1
   stage: dev
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:*
+      Resource: "arn:aws:dynamodb:us-east-1:*:*"
   logRetentionInDays: 30
   apiGateway:
     minimumCompressionSize: 0
     binaryMediaTypes:
       - '*/*'
+  environment:
+    AUTH_SECRET: ${file(./.config.json):AUTH_SECRET}
 
 functions:
   api:

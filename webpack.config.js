@@ -12,6 +12,9 @@ module.exports = {
     filename: '[name].js',
   },
   stats: 'minimal',
+  resolve: {
+    extensions: [".ts", ".js"],
+  },
   module: {
     rules: [
       {
