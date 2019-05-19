@@ -16,6 +16,6 @@
     "allowSyntheticDefaultImports": true,
     "typeRoots": ["./node_modules/@types", "./typings"]
   },
-  "include": ["app/**/*"],
+  "include": ["app/**/*", "cron/**/*"],
   "exclude": ["node_modules/**/*"]
 }

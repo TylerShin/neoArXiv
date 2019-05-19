@@ -1,0 +1,285 @@
+{
+  "feed": {
+    "xmlns": [
+      "http://www.w3.org/2005/Atom"
+    ],
+    "link": [
+      {
+        "href": [
+          "http://arxiv.org/api/query?search_query%3D%26id_list%3D1905.06935%26start%3D0%26max_results%3D1"
+        ],
+        "rel": [
+          "self"
+        ],
+        "type": [
+          "application/atom+xml"
+        ]
+      }
+    ],
+    "title": [
+      {
+        "_": "ArXiv Query: search_query=&id_list=1905.06935&start=0&max_results=1",
+        "type": [
+          "html"
+        ]
+      }
+    ],
+    "id": [
+      "http://arxiv.org/api/90tFDuz96L/ReVGMIGz01LCvRoo"
+    ],
+    "updated": [
+      "2019-05-19T00:00:00-04:00"
+    ],
+    "opensearch:totalresults": [
+      {
+        "_": "1",
+        "xmlns:opensearch": [
+          "http://a9.com/-/spec/opensearch/1.1/"
+        ]
+      }
+    ],
+    "opensearch:startindex": [
+      {
+        "_": "0",
+        "xmlns:opensearch": [
+          "http://a9.com/-/spec/opensearch/1.1/"
+        ]
+      }
+    ],
+    "opensearch:itemsperpage": [
+      {
+        "_": "1",
+        "xmlns:opensearch": [
+          "http://a9.com/-/spec/opensearch/1.1/"
+        ]
+      }
+    ],
+    "entry": [
+      {
+        "id": [
+          "http://arxiv.org/abs/1905.06935v1"
+        ],
+        "updated": [
+          "2019-05-16T17:55:02Z"
+        ],
+        "published": [
+          "2019-05-16T17:55:02Z"
+        ],
+        "title": [
+          "Electron Densities and Nitrogen Abundances in Ionized Gas Derived Using [NII] Fine-structure and Hydrogen Recombination lines"
+        ],
+        "summary": [
+          "We present a method for deriving the electron density of ionized gas using\nthe ratio of the intensity of the [NII] 205um line to that of a Hydrogen radio\nrecombination line (RRL). We use this method to derive electron densities of 21\nvelocity components in 11 lines of sight, including the Galactic center. We\nobserved, at high--spectral resolution, the [NII] 205um with the Herschel/HIFI\nand SOFIA/GREAT instruments and the radio recombination lines with the Green\nBank Telescope and the NASA Deep Space Network Deep Space Station 43 (DSS-43)\ntelescope. We find typical electron densities between 6 to 170 cm^{-3}, which\nare consistent with those derived at low spectral resolution using the [NII]\n205um/122um ratio with Herschel/PACS on a larger sample of sight lines in the\nGalactic plane. By matching the electron densities derived from the [NII]\n205um/RRL intensity ratio and the [NII] 122um/205um intensity ratio, we derive\nthe nitrogen fractional abundance for our velocity components. We investigate\nthe dependence of the N/H ratio with Galactocentric distance in the inner\nGalaxy (R_gal<6kpc), which is inaccessible in optical studies due to dust\nextinction. We find that the distribution of nitrogen abundances in the inner\ngalaxy derived from our data has a slope that is consistent to that found in\nthe outer Galaxy in optical studies. This result is inconsistent with some\nsuggestions of a flatter distribution of the nitrogen abundance in the inner\ngalaxy."
+        ],
+        "author": [
+          {
+            "name": [
+              "Jorge L. Pineda"
+            ],
+            "arxiv:affiliation": [
+              {
+                "_": "Jet Propulsion Laboratory, California Institute of Technology",
+                "xmlns:arxiv": [
+                  "http://arxiv.org/schemas/atom"
+                ]
+              }
+            ]
+          },
+          {
+            "name": [
+              "Shinji Horiuchi"
+            ],
+            "arxiv:affiliation": [
+              {
+                "_": "Astronomy & Space Science/NASA Canberra Deep Space Communication",
+                "xmlns:arxiv": [
+                  "http://arxiv.org/schemas/atom"
+                ]
+              }
+            ]
+          },
+          {
+            "name": [
+              "L. D. Anderson"
+            ],
+            "arxiv:affiliation": [
+              {
+                "_": "Department of Physics and Astronomy, West Virginia University",
+                "xmlns:arxiv": [
+                  "http://arxiv.org/schemas/atom"
+                ]
+              },
+              {
+                "_": "USA Center for Gravitational Waves and Cosmology, West Virginia University",
+                "xmlns:arxiv": [
+                  "http://arxiv.org/schemas/atom"
+                ]
+              },
+              {
+                "_": "USA Green Bank Observatory",
+                "xmlns:arxiv": [
+                  "http://arxiv.org/schemas/atom"
+                ]
+              }
+            ]
+          },
+          {
+            "name": [
+              "Matteo Luisi"
+            ],
+            "arxiv:affiliation": [
+              {
+                "_": "Department of Physics and Astronomy, West Virginia University",
+                "xmlns:arxiv": [
+                  "http://arxiv.org/schemas/atom"
+                ]
+              },
+              {
+                "_": "USA Center for Gravitational Waves and Cosmology, West Virginia University",
+                "xmlns:arxiv": [
+                  "http://arxiv.org/schemas/atom"
+                ]
+              }
+            ]
+          },
+          {
+            "name": [
+              "Paul F. Goldsmith"
+            ],
+            "arxiv:affiliation": [
+              {
+                "_": "Jet Propulsion Laboratory, California Institute of Technology",
+                "xmlns:arxiv": [
+                  "http://arxiv.org/schemas/atom"
+                ]
+              }
+            ]
+          },
+          {
+            "name": [
+              "William D. Langer"
+            ],
+            "arxiv:affiliation": [
+              {
+                "_": "Jet Propulsion Laboratory, California Institute of Technology",
+                "xmlns:arxiv": [
+                  "http://arxiv.org/schemas/atom"
+                ]
+              }
+            ]
+          },
+          {
+            "name": [
+              "Thomas B. H. Kuiper"
+            ],
+            "arxiv:affiliation": [
+              {
+                "_": "Jet Propulsion Laboratory, California Institute of Technology",
+                "xmlns:arxiv": [
+                  "http://arxiv.org/schemas/atom"
+                ]
+              }
+            ]
+          },
+          {
+            "name": [
+              "Geoff Bryden"
+            ],
+            "arxiv:affiliation": [
+              {
+                "_": "Jet Propulsion Laboratory, California Institute of Technology",
+                "xmlns:arxiv": [
+                  "http://arxiv.org/schemas/atom"
+                ]
+              }
+            ]
+          },
+          {
+            "name": [
+              "Melissa Soriano"
+            ],
+            "arxiv:affiliation": [
+              {
+                "_": "Jet Propulsion Laboratory, California Institute of Technology",
+                "xmlns:arxiv": [
+                  "http://arxiv.org/schemas/atom"
+                ]
+              }
+            ]
+          },
+          {
+            "name": [
+              "Joseph W. Lazio"
+            ],
+            "arxiv:affiliation": [
+              {
+                "_": "Jet Propulsion Laboratory, California Institute of Technology",
+                "xmlns:arxiv": [
+                  "http://arxiv.org/schemas/atom"
+                ]
+              }
+            ]
+          }
+        ],
+        "arxiv:comment": [
+          {
+            "_": "18 pages, 9 figures, to be submitted to ApJ, comments welcome",
+            "xmlns:arxiv": [
+              "http://arxiv.org/schemas/atom"
+            ]
+          }
+        ],
+        "link": [
+          {
+            "href": [
+              "http://arxiv.org/abs/1905.06935v1"
+            ],
+            "rel": [
+              "alternate"
+            ],
+            "type": [
+              "text/html"
+            ]
+          },
+          {
+            "title": [
+              "pdf"
+            ],
+            "href": [
+              "http://arxiv.org/pdf/1905.06935v1"
+            ],
+            "rel": [
+              "related"
+            ],
+            "type": [
+              "application/pdf"
+            ]
+          }
+        ],
+        "arxiv:primary_category": [
+          {
+            "xmlns:arxiv": [
+              "http://arxiv.org/schemas/atom"
+            ],
+            "term": [
+              "astro-ph.GA"
+            ],
+            "scheme": [
+              "http://arxiv.org/schemas/atom"
+            ]
+          }
+        ],
+        "category": [
+          {
+            "term": [
+              "astro-ph.GA"
+            ],
+            "scheme": [
+              "http://arxiv.org/schemas/atom"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

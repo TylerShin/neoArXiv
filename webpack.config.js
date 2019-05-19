@@ -28,6 +28,9 @@ module.exports = {
       },
     ],
   },
+  node: {
+    __dirname: false,
+  },
   plugins: [
     new CircularDependencyPlugin({
       exclude: /a\.js|node_modules/,

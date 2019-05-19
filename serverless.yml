@@ -24,6 +24,8 @@ functions:
       - http:
           method: any
           path: /{proxy+}
+  newArxiv:
+    handler: cron/newArxiv.handler
 
 plugins:
   - serverless-webpack
