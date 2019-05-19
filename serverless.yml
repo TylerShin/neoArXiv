@@ -1,0 +1,28 @@
+service: neoarxiv-api
+provider:
+  name: aws
+  runtime: nodejs8.10
+  region: us-east-1
+  stage: dev
+  logRetentionInDays: 30
+  apiGateway:
+    minimumCompressionSize: 0
+    binaryMediaTypes:
+      - '*/*'
+
+functions:
+  api:
+    handler: app/handler.handler
+    events:
+      - http:
+          method: any
+          path: /{proxy+}
+
+plugins:
+  - serverless-webpack
+
+custom:
+  webpack:
+    includeModules:
+      forceExclude:
+        - aws-sdk
