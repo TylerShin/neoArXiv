@@ -33,8 +33,8 @@ export async function getNewFeed(): Promise<ArxivPaperResponse | undefined> {
     It is following the https://arxiv.org/help/robots policy.
     Let's save the research world together.
   */
- // TODO: Remove slice
- for (const link of links.slice(0, 2)) {
+  // TODO: Remove slice
+  for (const link of links.slice(0, 2)) {
     const listRes = await axios.get(`https://arxiv.org${link}`);
     const listHTML = listRes.data;
 
@@ -62,10 +62,15 @@ export const handler = async (event: any, _context: any) => {
 
     const papers = rawPaperList.map(paper => ArxivPaper.formatPaper(paper));
     console.log(JSON.stringify(papers, null, 2));
-    // TODO: save or update all paper to DynamoDB
-    
+    const paperModelList = papers.map(p => {
+      const paper = new ArxivPaper();
+      paper.setAttributes(p);
+      return paper;
+    });
+
+    await ArxivPaper.writer.batchPut(paperModelList);
   }
-  
+
   return {
     statusCode: 200,
     body: JSON.stringify({ success: true }),

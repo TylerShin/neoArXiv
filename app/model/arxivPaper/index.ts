@@ -17,12 +17,6 @@ export class ArxivPaper extends Table {
   @Decorator.HashPrimaryKey('id')
   public static readonly primaryKey: Query.HashPrimaryKey<ArxivPaper, string>;
 
-  // @Decorator.HashGlobalSecondaryIndex('username', { name: 'username-index' })
-  // public static readonly usernameSecondaryIndex: Query.HashGlobalSecondaryIndex<
-  //   User,
-  //   string
-  // >;
-
   @Decorator.Writer()
   public static readonly writer: Query.Writer<ArxivPaper>;
 

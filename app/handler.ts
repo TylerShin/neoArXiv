@@ -14,9 +14,7 @@ AWS.config.update({
 
 const router = new Router([
   new Namespace('/api', {
-    children: [
-      userRoutes
-    ],
+    children: [userRoutes],
   }),
 ]);
 

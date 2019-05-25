@@ -26,6 +26,12 @@ functions:
           path: /{proxy+}
   newArxiv:
     handler: cron/newArxiv.handler
+    # events:
+    #   - schedule: rate(2 hours)
+  bioRxiv:
+    handler: cron/bioRxiv.handler
+    # events:
+    #   - schedule: rate(2 hours)
 
 plugins:
   - serverless-webpack
