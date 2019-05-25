@@ -59,9 +59,7 @@ export const handler = async (event: any, _context: any) => {
 
   if (response && response.feed.entry && response.feed.entry.length > 0) {
     const rawPaperList = response.feed.entry;
-
     const papers = rawPaperList.map(paper => ArxivPaper.formatPaper(paper));
-    console.log(JSON.stringify(papers, null, 2));
     const paperModelList = papers.map(p => {
       const paper = new ArxivPaper();
       paper.setAttributes(p);

@@ -37,14 +37,13 @@ declare namespace BioRxiv {
   }
 
   interface FeedItem {
-    creator: string;
-    date: string;
-    title: string;
-    link: string;
-    'dc:creator': string;
-    'dc:date': string;
-    content: string;
-    contentSnippet: string;
-    isoDate: string;
+    id?: string;
+    creator?: string;
+    date?: string;
+    title?: string;
+    link?: string;
+    content?: string;
+    contentSnippet?: string;
+    isoDate?: string;
   }
 }
