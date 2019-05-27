@@ -58,55 +58,70 @@ async function getXMLFeed(category: BioRxiv.FEED_CATEGORY): Promise<BioRxiv.RSSR
   return json;
 }
 
-async function divideNewOldItems(feed: BioRxiv.FeedItem[]) {
-  const newItems: BioRxiv.FeedItem[] = [];
-  const itemsToUpdate: BioRxiv.FeedItem[] = [];
+function uniqueAddToArray<T>(arr: T[], item: T) {
+  const set = new Set(arr);
+  set.add(item);
+  return Array.from(set);
+}
+
+function updateCategory(paper: BioRxiv.BioRxivPaper, newCategory: BioRxiv.FEED_CATEGORY) {
+  return { ...paper, category: uniqueAddToArray<BioRxiv.FEED_CATEGORY>(paper.category, newCategory) };
+}
+
+async function divideNewOldItems(feed: BioRxiv.RawFeedItem[], category: BioRxiv.FEED_CATEGORY) {
+  const newItems: BioRxiv.BioRxivPaper[] = [];
+  const itemsToUpdate: BioRxiv.BioRxivPaper[] = [];
+
   for (const item of feed) {
     if (item.id) {
       const res = await BioRxivPaper.primaryKey.get(item.id);
       if (res) {
-        const isEqual = _.isEqual(item, res.serialize());
+        const oldPaper = res.serialize() as BioRxiv.BioRxivPaper;
+        const oldRawPaper = BioRxivPaper.getRawItem(oldPaper);
+        const isEqual = _.isEqual(item.id, oldRawPaper.id);
         if (!isEqual) {
-          itemsToUpdate.push(item);
+          const paper = updateCategory(oldPaper, category);
+          itemsToUpdate.push(paper);
         }
       } else {
-        newItems.push(item);
+        const paper = { ...item, category: [category] } as BioRxiv.BioRxivPaper;
+        newItems.push(paper);
       }
     }
   }
+
+  console.log(`Found ${newItems.length} new papers`);
+  console.log(`Found ${itemsToUpdate.length} papers need to be updated`);
+
   return [newItems, itemsToUpdate];
 }
 
-function mapFeedToBioRxivPaperInstance(feed: BioRxiv.FeedItem[], category: BioRxiv.FEED_CATEGORY) {
+function mapFeedToBioRxivPaperInstance(feed: BioRxiv.RawFeedItem[]) {
   return feed.map(item => {
     const paperModel = new BioRxivPaper();
     paperModel.setAttributes(item);
-    paperModel.setAttribute('id', item.id + category);
-    paperModel.setAttribute('rawId', item.id);
-    paperModel.setAttribute('category', category);
     return paperModel;
   });
 }
 
-async function saveNewItems(feed: BioRxiv.FeedItem[], category: BioRxiv.FEED_CATEGORY) {
-  await BioRxivPaper.writer.batchPut(mapFeedToBioRxivPaperInstance(feed, category));
+async function saveNewItems(feed: BioRxiv.RawFeedItem[]) {
+  await BioRxivPaper.writer.batchPut(mapFeedToBioRxivPaperInstance(feed));
 }
 
-async function updateOldItems(feed: BioRxiv.FeedItem[], category: BioRxiv.FEED_CATEGORY) {
-  await BioRxivPaper.writer.batchPut(mapFeedToBioRxivPaperInstance(feed, category));
+async function updateOldItems(feed: BioRxiv.RawFeedItem[]) {
+  await BioRxivPaper.writer.batchPut(mapFeedToBioRxivPaperInstance(feed));
 }
 
 async function saveAndUpdateItems(category: BioRxiv.FEED_CATEGORY) {
   const res = await getXMLFeed(category);
   const feed = res.items;
-  const [newItems, itemsToUpdate] = await divideNewOldItems(feed);
-  await Promise.all([saveNewItems(newItems, category), updateOldItems(itemsToUpdate, category)]);
+  const [newItems, itemsToUpdate] = await divideNewOldItems(feed, category);
+  await Promise.all([saveNewItems(newItems), updateOldItems(itemsToUpdate)]);
 }
 
 export const handler = async (event: any, _context: any) => {
   console.log(JSON.stringify(event, null, 2));
   await Promise.all(ALL_POSSIBLE_CATEGORIES.map(category => saveAndUpdateItems(category)));
-
   return {
     statusCode: 200,
     body: JSON.stringify({ success: true }),

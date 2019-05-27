@@ -14,30 +14,35 @@ export class BioRxivPaper extends Table {
 
   @Decorator.Attribute({ name: 'rawId' })
   public rawId: string;
-  
-  @Decorator.Attribute({name: 'creator'})
+
+  @Decorator.Attribute({ name: 'creator' })
   public creator: string;
 
-  @Decorator.Attribute({name: 'date'})
+  @Decorator.Attribute({ name: 'date' })
   public date: string;
 
-  @Decorator.Attribute({name: 'title'})
+  @Decorator.Attribute({ name: 'title' })
   public title: string;
 
-  @Decorator.Attribute({name: 'link'})
+  @Decorator.Attribute({ name: 'link' })
   public link: string;
 
-  @Decorator.Attribute({name: 'content'})
+  @Decorator.Attribute({ name: 'content' })
   public content: string;
 
-  @Decorator.Attribute({name: 'contentSnippet'})
+  @Decorator.Attribute({ name: 'contentSnippet' })
   public contentSnippet: string;
 
-  @Decorator.Attribute({name: 'isoDate'})
+  @Decorator.Attribute({ name: 'isoDate' })
   public isoDate: string;
 
-  @Decorator.Attribute({name: 'category'})
+  @Decorator.Attribute({ name: 'category' })
   public category: BioRxiv.FEED_CATEGORY;
+
+  public static getRawItem(item: BioRxiv.BioRxivPaper): BioRxiv.RawFeedItem {
+    const { category, ...rawItem } = item;
+    return rawItem;
+  }
 }
 
 export default BioRxivPaper;

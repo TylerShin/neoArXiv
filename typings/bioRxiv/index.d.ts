@@ -30,13 +30,13 @@ declare namespace BioRxiv {
     | 'Zoology';
 
   interface RSSResponse {
-    items: FeedItem[];
+    items: RawFeedItem[];
     title: string;
     description: string;
     link: string;
   }
 
-  interface FeedItem {
+  interface RawFeedItem {
     id?: string;
     creator?: string;
     date?: string;
@@ -45,5 +45,9 @@ declare namespace BioRxiv {
     content?: string;
     contentSnippet?: string;
     isoDate?: string;
+  }
+
+  interface BioRxivPaper extends RawFeedItem {
+    category: FEED_CATEGORY[];
   }
 }
