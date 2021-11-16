@@ -6,7 +6,7 @@
     "run:bioRxiv": "serverless invoke local --function bioRxiv"
   },
   "dependencies": {
-    "aws-sdk": "^2.458.0",
+    "aws-sdk": "^2.814.0",
     "axios": "^0.18.0",
     "bcryptjs": "^2.4.3",
     "cheerio": "^1.0.0-rc.3",
